@@ -1,21 +1,23 @@
-const details = [
-  { label: 'Email', value: 'hello@cafedaalma.com' },
-  { label: 'Phone', value: '+1 (555) 123-4567' },
-  { label: 'Address', value: '123 Coffee Lane, Java City' },
-];
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Contact() {
+  const { t } = useLanguage();
+
   return (
-    <main>
-      <h1>Contact Us</h1>
-      <div className="contact-grid">
-        {details.map(({ label, value }) => (
-          <div className="contact-item" key={label}>
-            <span className="label">{label}</span>
-            <span>{value}</span>
-          </div>
-        ))}
-      </div>
+    <main className="contact-page">
+      <h1>{t.contact.title}</h1>
+      <form className="contact-form contact-form-mockup">
+        <label htmlFor="name">{t.contact.name}</label>
+        <input id="name" name="name" type="text" />
+
+        <label htmlFor="email">{t.contact.email}</label>
+        <input id="email" name="email" type="email" />
+
+        <label htmlFor="message">{t.contact.message}</label>
+        <textarea id="message" name="message" rows="7" />
+
+        <button type="submit" className="btn">{t.contact.submit}</button>
+      </form>
     </main>
   );
 }

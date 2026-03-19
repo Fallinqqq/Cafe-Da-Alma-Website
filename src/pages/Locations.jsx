@@ -1,19 +1,30 @@
-const locations = [
-  { name: 'Main Street Cafe', address: '123 Main St, Java City' },
-  { name: 'Riverside Shop', address: '456 River Blvd, Java City' },
-  { name: 'City Center', address: '789 Center Ave, Java City' },
-];
+import { useLanguage } from '../context/LanguageContext';
+import { getLocations } from '../data/siteContent';
 
 export default function Locations() {
+  const { locale, t } = useLanguage();
+  const locations = getLocations(locale);
+
   return (
-    <main>
-      <h1>Locations</h1>
-      <p>Find your nearest Cafe Da Alma branch:</p>
-      <div className="location-cards">
+    <main className="locations-page">
+      <h1>{t.locations.title}</h1>
+      <div className="location-cards location-showcase">
         {locations.map(loc => (
           <div className="location-card" key={loc.name}>
-            <h3>{loc.name}</h3>
-            <p>{loc.address}</p>
+            <div className="location-map-wrap">
+              <iframe
+                className="location-map"
+                src={loc.mapSrc}
+                title={`${loc.name} ${t.locations.mapLabel}`}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+            <div className="location-address-block">
+              {loc.addressLines.map(line => (
+                <p key={line}>{line}</p>
+              ))}
+            </div>
           </div>
         ))}
       </div>

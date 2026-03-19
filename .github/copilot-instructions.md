@@ -18,7 +18,7 @@ A pure static HTML/CSS website for a specialty coffee and pastry shop. No build 
 - Each page gets exactly one `<h1>`
 - Navigation: `<div class="logo">` + `<ul class="nav-links">` inside `<header>` > `<nav>`
 - Mark the current page's nav link with class `active` (only one per page)
-- Internal links use relative paths (e.g., `href="about.html"`, not absolute URLs)
+- Internal links use relative paths (e.g., `href="menu.html"`, not absolute URLs)
 - Keep `<title>` consistent with the page: `Cafe Da Alma - <Page Name>`
 
 ### CSS
