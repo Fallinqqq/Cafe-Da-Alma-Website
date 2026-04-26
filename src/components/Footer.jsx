@@ -17,7 +17,7 @@ export default function Footer() {
       <div className="footer-inner">
         <div className="footer-top">
           <div>
-            <p className="footer-brand">Cafe Da Alma</p>
+            <img src="/logo-horizontal.png" alt="Cafe Da Alma" className="footer-logo" />
             <ul className="footer-nav">
               {footerNavLinks.map(link => (
                 <li key={link.key}>

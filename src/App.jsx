@@ -1,23 +1,39 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import { LanguageProvider } from './context/LanguageContext';
+import Home from './pages/Home';
+import Menu from './pages/Menu';
+import Shop from './pages/Shop';
+import Teas from './pages/Teas';
+import Coffees from './pages/Coffees';
+import Pastries from './pages/Pastries';
+import Merchandise from './pages/Merchandise';
+import PackagedCoffeeTea from './pages/PackagedCoffeeTea';
+import Locations from './pages/Locations';
+import OrderNow from './pages/OrderNow';
+import Contact from './pages/Contact';
+
 export default function App() {
   return (
-    <div style={{
-      minHeight: '100vh',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-      backgroundColor: '#f4f0eb',
-      gap: '2rem',
-    }}>
-      <img src="/logo.png" alt="Cafe Da Alma logo" style={{ maxWidth: '280px', width: '80%' }} />
-      <h1 style={{
-        fontFamily: '"proxima-nova", Arial, sans-serif',
-        fontSize: '2.5rem',
-        color: '#3b2a1a',
-        letterSpacing: '0.15em',
-        textTransform: 'uppercase',
-        margin: 0,
-      }}>Coming Soon</h1>
-    </div>
+    <LanguageProvider>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/menu" element={<Menu />} />
+          <Route path="/shop" element={<Shop />} />
+          <Route path="/shop/teas" element={<Teas />} />
+          <Route path="/shop/coffees" element={<Coffees />} />
+          <Route path="/shop/pastries" element={<Pastries />} />
+          <Route path="/shop/merchandise" element={<Merchandise />} />
+          <Route path="/shop/packaged-coffee-tea" element={<PackagedCoffeeTea />} />
+          <Route path="/locations" element={<Locations />} />
+          <Route path="/order" element={<OrderNow />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </LanguageProvider>
   );
 }

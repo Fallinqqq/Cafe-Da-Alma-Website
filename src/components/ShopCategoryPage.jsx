@@ -38,7 +38,7 @@ export default function ShopCategoryPage({ slug }) {
             <div className="product-meta">
               <h3>{product.name}</h3>
               <p>{product.price}</p>
-              <button type="button" className="product-button">{t.shop.addToCart}</button>
+              <button type="button" className="product-button">{t.shop.cardAction}</button>
             </div>
           </article>
         ))}
