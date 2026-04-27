@@ -1283,7 +1283,7 @@ main p {
     width: 100vw;
     margin-left: calc(50% - 50vw);
     background: #1a0e06;
-    padding: 2.5rem 2rem 2rem;
+    padding: 1.75rem 2rem 1.5rem;
 }
 .ordering-hero-inner {
     max-width: 1200px;
@@ -1301,9 +1301,9 @@ main p {
 .ordering-hero h1 {
     color: #fff;
     border: none;
-    font-size: clamp(2rem, 5vw, 3rem);
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
     text-transform: uppercase;
-    margin: 0 0 0.8rem;
+    margin: 0 0 0.6rem;
     line-height: 1.05;
 }
 .ordering-meta {
@@ -1368,10 +1368,10 @@ main p {
 .ordering-body {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 1.5rem 2rem;
     display: grid;
-    grid-template-columns: 1fr 340px;
-    gap: 2.5rem;
+    grid-template-columns: 1fr 310px;
+    gap: 2rem;
     align-items: start;
 }
 
@@ -1379,83 +1379,111 @@ main p {
     margin-bottom: 2rem;
 }
 .ordering-section-title {
-    font-size: 1.15rem;
+    font-size: 0.72rem;
+    font-family: "mendl-sans", Arial, sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: #1a0e06;
+    color: var(--text-muted);
     border: none;
-    border-bottom: 2px solid var(--border);
+    border-bottom: 1px solid var(--border);
     padding-bottom: 0.5rem;
-    margin-bottom: 0;
+    margin-bottom: 0.85rem;
 }
 .ordering-items {
     display: grid;
-    gap: 0;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.65rem;
 }
 
 .ordering-item {
     display: flex;
     justify-content: space-between;
-    gap: 1.2rem;
-    padding: 1.1rem 0;
-    border-bottom: 1px solid var(--border);
+    gap: 0.75rem;
+    padding: 0.85rem;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    transition: box-shadow 0.15s, border-color 0.15s;
+}
+.ordering-item:hover {
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.09);
+    border-color: rgba(200, 117, 42, 0.35);
 }
 .ordering-item:last-child {
-    border-bottom: none;
+    border: 1px solid var(--border);
 }
 .ordering-item-info {
     flex: 1;
     min-width: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.3rem;
+    gap: 0.2rem;
 }
 .ordering-item-info h3 {
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: #1a0e06;
     margin: 0;
     font-family: "mendl-serif-dusk", Georgia, serif;
+    line-height: 1.3;
 }
 .ordering-item-info p {
-    font-size: 0.86rem;
+    font-size: 0.78rem;
     color: var(--text-muted);
-    line-height: 1.5;
+    line-height: 1.45;
     margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 .ordering-item-price {
     font-family: "mendl-sans", Arial, sans-serif;
     font-weight: 800;
-    font-size: 0.92rem;
-    color: #1a0e06;
+    font-size: 0.85rem;
+    color: var(--accent);
     margin-top: auto;
+    padding-top: 0.3rem;
 }
 
 .ordering-item-right {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.6rem;
+    gap: 0.45rem;
     flex-shrink: 0;
 }
 .ordering-item-img {
-    width: 88px;
-    height: 88px;
-    border-radius: 12px;
+    width: 68px;
+    height: 68px;
+    border-radius: 8px;
     flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
+.ordering-item-img::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.08);
+    border-radius: inherit;
 }
 .ordering-item-img.coffees {
-    background: linear-gradient(150deg, #3d1f0d 0%, #8b4a22 60%, #c9845a 100%);
+    background: linear-gradient(145deg, #3d1f0d 0%, #8b4a22 55%, #c9845a 100%);
 }
 .ordering-item-img.teas {
-    background: linear-gradient(150deg, #1e3312 0%, #4a6e2a 60%, #8aab5e 100%);
+    background: linear-gradient(145deg, #1e3312 0%, #4a6e2a 55%, #8aab5e 100%);
 }
 .ordering-item-img.pastries {
-    background: linear-gradient(150deg, #5c3208 0%, #b06818 60%, #e5aa3f 100%);
+    background: linear-gradient(145deg, #5c3208 0%, #b06818 55%, #e5aa3f 100%);
 }
 
 .ordering-item-controls {
     display: flex;
     align-items: center;
-    gap: 0.35rem;
+    gap: 0.3rem;
+    justify-content: center;
 }
 .ordering-qty-btn {
     width: 26px;
@@ -1625,9 +1653,17 @@ main p {
     .ordering-cart {
         position: static;
     }
+    .ordering-items {
+        grid-template-columns: 1fr;
+    }
     .ordering-item-img {
-        width: 72px;
-        height: 72px;
+        width: 64px;
+        height: 64px;
+    }
+}
+@media (max-width: 540px) {
+    .ordering-items {
+        grid-template-columns: 1fr;
     }
 }
 
