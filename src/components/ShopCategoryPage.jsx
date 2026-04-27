@@ -32,8 +32,15 @@ export default function ShopCategoryPage({ slug }) {
       <div className="product-grid">
         {category.products.map(product => (
           <article className={`product-card ${category.slug}`} key={product.name}>
-            <div className={`product-thumb ${category.slug}`}>
-              <span>{category.title}</span>
+            <div
+              className={`product-thumb ${category.slug}`}
+              style={product.image ? {
+                backgroundImage: `url('${product.image}')`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+              } : {}}
+            >
+              {!product.image && <span>{category.title}</span>}
             </div>
             <div className="product-meta">
               <h3>{product.name}</h3>

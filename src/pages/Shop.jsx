@@ -12,14 +12,16 @@ const categoryAccents = {
 
 export default function Shop() {
   const { locale, t } = useLanguage();
-  const shopCategories = getShopCategories(locale);
+  const shopCategories = getShopCategories(locale).filter(
+    cat => cat.slug !== 'coffees' && cat.slug !== 'teas' && cat.slug !== 'pastries'
+  );
 
   return (
     <main className="shop-page">
 
       {/* Page hero */}
       <div className="shop-hero">
-        <p className="shop-hero-eyebrow">Cafe Da Alma</p>
+        <p className="shop-hero-eyebrow">Café Da Alma</p>
         <h1>{t.shop.title}</h1>
         <p className="shop-hero-sub">{t.shop.intro}</p>
       </div>
@@ -60,7 +62,14 @@ export default function Shop() {
               <div className="product-grid">
                 {cat.products.slice(0, 3).map((product, i) => (
                   <article className="product-card" key={product.name}>
-                    <div className={`product-thumb ${cat.slug}`}>
+                    <div
+                      className={`product-thumb ${cat.slug}`}
+                      style={product.image ? {
+                        backgroundImage: `url('${product.image}')`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                      } : {}}
+                    >
                       {i === 0 && <span className="product-badge">Popular</span>}
                     </div>
                     <div className="product-meta">

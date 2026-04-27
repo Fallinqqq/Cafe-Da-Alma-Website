@@ -2,11 +2,9 @@ import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 
-const leftLinks = [
+const allLinks = [
   { to: '/menu', key: 'menu' },
   { to: '/shop', key: 'shop' },
-];
-const rightLinks = [
   { to: '/locations', key: 'locations' },
 ];
 
@@ -31,23 +29,12 @@ export default function Navbar() {
       </div>
 
       <nav>
-        {/* Left links */}
-        <ul className="nav-group nav-left">
-          {leftLinks.map(({ to, key }) => (
-            <li key={to}>
-              <NavLink to={to} className={p => linkClass(p, to)} onClick={close}>
-                {t.nav[key]}
-              </NavLink>
-            </li>
-          ))}
-        </ul>
-
-        {/* Centered logo */}
+        {/* Logo - left */}
         <NavLink to="/" className="logo" onClick={close}>
           {!logoError ? (
             <img
-              src="/logo-horizontal.png"
-              alt="Cafe Da Alma"
+              src="/new-logo.png"
+              alt="Café Da Alma"
               className="logo-img"
               onError={() => setLogoError(true)}
             />
@@ -56,9 +43,9 @@ export default function Navbar() {
           )}
         </NavLink>
 
-        {/* Right links + CTA */}
+        {/* All links + CTA - right */}
         <ul className="nav-group nav-right">
-          {rightLinks.map(({ to, key }) => (
+          {allLinks.map(({ to, key }) => (
             <li key={to}>
               <NavLink to={to} className={p => linkClass(p, to)} onClick={close}>
                 {t.nav[key]}
@@ -73,7 +60,7 @@ export default function Navbar() {
               aria-label={t.nav.language}
             >
               <span className="language-option en-label">EN</span>
-              <span className="language-option pt-label">PT-BR</span>
+              <span className="language-option pt-label">PT</span>
               <span className="language-thumb" aria-hidden="true" />
             </button>
           </li>
@@ -98,7 +85,7 @@ export default function Navbar() {
       {/* Mobile drawer */}
       {open && (
         <ul className="nav-mobile">
-          {[...leftLinks, ...rightLinks].map(({ to, key }) => (
+          {allLinks.map(({ to, key }) => (
             <li key={to}>
               <NavLink to={to} className={p => linkClass(p, to)} onClick={close}>
                 {t.nav[key]}

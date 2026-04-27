@@ -1,11 +1,10 @@
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 
-const categories = [
-  { label: 'Coffees', to: '/coffees', cls: 'coffees' },
-  { label: 'Teas', to: '/teas', cls: 'teas' },
-  { label: 'Pastries', to: '/pastries', cls: 'pastries' },
-  { label: 'Shop', to: '/shop', cls: 'merchandise' },
+const featuredCoffees = [
+  { name: 'Bourbon Santos', image: '/bourbon santos.jpg', price: '$15' },
+  { name: 'Espírito Forte', image: '/espirito forte.jpg', price: '$15' },
+  { name: 'Luz do Dia', image: '/Luz do dia.jpg', price: '$15' },
 ];
 
 const marqueeItems = [
@@ -26,7 +25,7 @@ export default function Home() {
         </video>
         <div className="hero-overlay" />
         <div className="hero-content">
-          <p className="hero-eyebrow">Cafe Da Alma Coffee &amp; Tea Co.</p>
+          <p className="hero-eyebrow">Café Da Alma Coffee &amp; Tea Co.</p>
           <h1>{t.home.banner}</h1>
           <div className="hero-ctas">
             <Link to="/order" className="hero-btn-primary">{t.home.splitCta}</Link>
@@ -44,46 +43,62 @@ export default function Home() {
         </div>
       </div>
 
-      {/* ── Shop by category ── */}
+      {/* ── Craft banner ── */}
+      <section className="home-craft-banner">
+        <div className="home-craft-overlay" />
+        <div className="home-craft-content">
+          <p className="home-about-eyebrow">Our Craft</p>
+          <h2>Roasted with Purpose,<br />Brewed with Care</h2>
+          <p>
+            Every bean traces back to the sun-soaked highlands of Brazil. We work
+            with small-batch roasters who share our obsession with quality —
+            from the farm to your cup.
+          </p>
+          <Link to="/order" className="hero-btn-primary">Order Now</Link>
+        </div>
+      </section>
+
+      {/* ── Shop by featured ── */}
       <section className="home-categories">
         <div className="home-categories-inner">
-          <h2 className="home-section-label">Shop by Category</h2>
-          <div className="home-cat-grid">
-            {categories.map(cat => (
-              <Link to={cat.to} key={cat.label} className={`home-cat-card home-cat-${cat.cls}`}>
-                <span>{cat.label}</span>
-              </Link>
+          <h2 className="home-section-label">Shop by Featured</h2>
+          <div className="home-featured-grid">
+            {featuredCoffees.map(coffee => (
+              <div key={coffee.name} className="home-featured-item">
+                <Link to="/order" className="home-featured-card">
+                  <img src={coffee.image} alt={coffee.name} className="home-featured-img" />
+                  <div className="home-featured-label">
+                    <span>{coffee.name}</span>
+                  </div>
+                </Link>
+                <Link to="/order" className="home-featured-btn">
+                  Shop Now &nbsp;|&nbsp; {coffee.price}
+                </Link>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── Strip ── */}
-      <section className="home-strip">
-        <h2>{t.home.stripTop}</h2>
-      </section>
-
-      {/* ── About split ── */}
-      <section className="home-split-section">
-        <div className="home-split-text">
-          <p className="home-split-eyebrow">Our craft</p>
-          <h2>{t.home.splitTitle}</h2>
-          <p>{t.home.splitBody}</p>
-          <Link to="/order" className="home-pill-button">{t.home.splitCta}</Link>
+      {/* ── About ── */}
+      <section id="about" className="home-about">
+        <div className="home-about-visual" />
+        <div className="home-about-text">
+          <p className="home-about-eyebrow">Our Story</p>
+          <h2>Where Brazilian Soul Meets Neighborhood Warmth</h2>
+          <p>
+            Café Da Alma — meaning "Café of the Soul" — was born from a love of Brazilian
+            coffee culture and the belief that a great cup of coffee should slow you down,
+            not speed you up. We source bold Brazilian roasts, brew handcrafted teas, and
+            bake fresh pastries every morning for our neighbors in Lynchburg, VA and
+            São Paulo, Brazil.
+          </p>
+          <p>
+            Every drink, every bite, every visit is made with intention. We are not just
+            a cafe — we are a place where moments stretch a little longer and the cups
+            are always warm.
+          </p>
         </div>
-        <div className="home-split-visual">
-          <div className="home-split-img" />
-        </div>
-      </section>
-
-      {/* ── Why guests come back ── */}
-      <section className="home-highlights-section">
-        <h2>{t.home.highlightsTitle}</h2>
-        <ul className="home-highlights-list">
-          {t.home.highlights.map(highlight => (
-            <li key={highlight}>{highlight}</li>
-          ))}
-        </ul>
       </section>
 
     </main>
