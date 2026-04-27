@@ -517,11 +517,11 @@ main p {
     width: 100vw;
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
-    padding: 5rem 2rem;
+    padding: 7rem 2rem;
     background: #fff;
 }
 .home-categories-inner {
-    max-width: 1120px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 .home-section-label {
@@ -538,7 +538,7 @@ main p {
 .home-featured-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.25rem;
+    gap: 2rem;
 }
 .home-featured-item {
     display: flex;
@@ -561,7 +561,7 @@ main p {
 }
 .home-featured-img {
     width: 100%;
-    height: 340px;
+    height: 500px;
     object-fit: cover;
     display: block;
 }
@@ -577,7 +577,7 @@ main p {
         transparent 100%
     );
     font-family: "mendl-serif-dusk", Georgia, serif;
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     font-weight: 900;
     color: #fff;
     text-transform: uppercase;
@@ -844,8 +844,9 @@ main p {
 .home-craft-content {
     position: relative;
     z-index: 1;
-    max-width: 600px;
-    padding: 5rem 2rem 5rem calc(50vw - 560px + 2rem);
+    max-width: 560px;
+    margin-left: max(2rem, calc(50vw - 560px));
+    padding: 5rem 2rem;
 }
 .home-craft-content .home-about-eyebrow {
     color: var(--accent);
