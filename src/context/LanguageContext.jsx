@@ -1,288 +1,319 @@
-import { createContext, useContext, useEffect, useMemo, useState } from 'react';
+import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
 const translations = {
-  en: {
-    nav: {
-      menu: 'Menu',
-      shop: 'Shop',
-      locations: 'Locations',
-      contact: 'Contact',
-      order: 'Order Online',
-      toggleOpen: 'Toggle navigation',
-      language: 'PT-BR',
-    },
-    home: {
-      title: 'Welcome to Café Da Alma',
-      description: 'Specialty coffee, artisan pastries, and a warm community atmosphere - all in one place.',
-      cta: 'View Our Menu',
-      banner: 'Discover where moments slow and cups are warm at Café Da Alma.',
-      featuredTitle: 'Featured Menu Items',
-      featuredItems: ['Erva Mate', 'Mogiana Latte', 'Pao de Queijo'],
-      exploreMenu: 'Explore Our Menu',
-      stripTop: 'Brazilian soul, neighborhood pace.',
-      splitTitle: 'From first sip to last crumb, we keep it handcrafted.',
-      splitBody: 'Every drink is brewed to order and paired with pastries inspired by classic Brazilian cafe traditions.',
-      splitCta: 'Order Online',
-      highlightsTitle: 'Why guests keep coming back',
-      highlights: ['Single-origin Brazilian coffee', 'Fresh pastries baked daily', 'Fast pickup and local delivery'],
-      stripBottom: 'Made with warmth. Served with intention.',
-      socialHandle: '@cafedaalma',
-      socialTagline: 'Tag us in your favorite Café Da Alma moment.',
-    },
-    menu: {
-      title: 'Menu',
-      intro: 'Crafted drinks and Brazilian favorites, served all day.',
-      itemsLabel: 'items',
-    },
-    locations: {
-      title: 'Locations',
-      mapLabel: 'map',
-    },
-    order: {
-      title: 'Order Now',
-      description: 'Order your favorites in minutes with flexible pickup and local delivery.',
-      badge: 'Fast, fresh, and handcrafted',
-      startOrder: 'Start Your Order',
-      browseMenu: 'Browse Full Menu',
-      optionsTitle: 'Choose how you want your order',
-      options: [
-        {
-          title: 'Pickup',
-          detail: 'Ready in 15-20 minutes',
-          note: 'Best for quick coffee runs and pastry stops.',
+    en: {
+        nav: {
+            menu: "Menu",
+            shop: "Shop",
+            locations: "Locations",
+            contact: "Contact",
+            order: "Order Online",
+            toggleOpen: "Toggle navigation",
+            language: "PT-BR",
         },
-        {
-          title: 'Delivery',
-          detail: 'Arrives in about 30-40 minutes',
-          note: 'Local delivery available within select neighborhoods.',
+        home: {
+            title: "Welcome to Café Da Alma",
+            description:
+                "Specialty coffee, artisan pastries, and a warm community atmosphere - all in one place.",
+            cta: "View Our Menu",
+            banner: "Discover where moments slow and cups are warm at Café Da Alma.",
+            featuredTitle: "Featured Menu Items",
+            featuredItems: ["Erva Mate", "Mogiana Latte", "Pao de Queijo"],
+            exploreMenu: "Explore Our Menu",
+            stripTop: "Brazilian soul, neighborhood pace.",
+            splitTitle: "From first sip to last crumb, we keep it handcrafted.",
+            splitBody:
+                "Every drink is brewed to order and paired with pastries inspired by classic Brazilian cafe traditions.",
+            splitCta: "Order Online",
+            highlightsTitle: "Why guests keep coming back",
+            highlights: [
+                "Single-origin Brazilian coffee",
+                "Fresh pastries baked daily",
+                "Fast pickup and local delivery",
+            ],
+            stripBottom: "Made with warmth. Served with intention.",
+            socialHandle: "@cafedaalma",
+            socialTagline: "Tag us in your favorite Café Da Alma moment.",
         },
-      ],
-      stepsTitle: 'How online ordering works',
-      steps: [
-        'Pick your drinks, pastries, and bundles.',
-        'Choose pickup or delivery and set your time.',
-        'Confirm your order and we will start preparing it fresh.',
-      ],
-      bundlesTitle: 'Popular order bundles',
-      bundles: [
-        {
-          name: 'Morning Reset',
-          includes: 'Mogiana Latte + Pao de Queijo',
-          price: '$7.00',
+        menu: {
+            title: "Menu",
+            intro: "Crafted drinks and Brazilian favorites, served all day.",
+            itemsLabel: "items",
         },
-        {
-          name: 'Afternoon Sweet Break',
-          includes: 'Cha Misto + Brigadeiros (2)',
-          price: '$8.00',
+        locations: {
+            title: "Locations",
+            mapLabel: "map",
+            intro: "Find us in Lynchburg, VA and São Paulo, Brazil — two cities, one soul.",
         },
-        {
-          name: 'Café Da Alma Pairing',
-          includes: 'Brazilian Cold Brew + Pastel de Belem',
-          price: '$8.00',
+        order: {
+            title: "Order Now",
+            description:
+                "Order your favorites in minutes with flexible pickup and local delivery.",
+            badge: "Fast, fresh, and handcrafted",
+            startOrder: "Start Your Order",
+            browseMenu: "Browse Full Menu",
+            optionsTitle: "Choose how you want your order",
+            options: [
+                {
+                    title: "Pickup",
+                    detail: "Ready in 15-20 minutes",
+                    note: "Best for quick coffee runs and pastry stops.",
+                },
+                {
+                    title: "Delivery",
+                    detail: "Arrives in about 30-40 minutes",
+                    note: "Local delivery available within select neighborhoods.",
+                },
+            ],
+            stepsTitle: "How online ordering works",
+            steps: [
+                "Pick your drinks, pastries, and bundles.",
+                "Choose pickup or delivery and set your time.",
+                "Confirm your order and we will start preparing it fresh.",
+            ],
+            bundlesTitle: "Popular order bundles",
+            bundles: [
+                {
+                    name: "Morning Reset",
+                    includes: "Mogiana Latte + Pao de Queijo",
+                    price: "$7.00",
+                },
+                {
+                    name: "Afternoon Sweet Break",
+                    includes: "Cha Misto + Brigadeiros (2)",
+                    price: "$8.00",
+                },
+                {
+                    name: "Café Da Alma Pairing",
+                    includes: "Brazilian Cold Brew + Pastel de Belem",
+                    price: "$8.00",
+                },
+            ],
+            bundleAction: "Add Bundle",
+            supportTitle: "Need a larger order?",
+            supportBody:
+                "For group orders, office coffee drops, or events, our team can help you plan ahead.",
+            supportAction: "Contact the Cafe Team",
+            features: [
+                "Online ordering with pickup scheduling",
+                "Local delivery in 30 minutes",
+                "Custom blend requests",
+            ],
         },
-      ],
-      bundleAction: 'Add Bundle',
-      supportTitle: 'Need a larger order?',
-      supportBody: 'For group orders, office coffee drops, or events, our team can help you plan ahead.',
-      supportAction: 'Contact the Cafe Team',
-      features: [
-        'Online ordering with pickup scheduling',
-        'Local delivery in 30 minutes',
-        'Custom blend requests',
-      ],
-    },
-    contact: {
-      title: 'Contact Us',
-      name: 'First & Last Name',
-      namePlaceholder: 'Jane Doe',
-      email: 'Email',
-      emailPlaceholder: 'jane@example.com',
-      message: 'Message',
-      messagePlaceholder: 'Tell us how we can help...',
-      helpText: 'Questions about catering, events, or custom orders? We usually reply within one business day.',
-      submit: 'Submit',
-    },
-    shop: {
-      title: 'Shop',
-      intro: 'Browse signature drinks, pastries, merch, and packaged favorites from Café Da Alma.',
-      viewAll: 'View all',
-      backToShop: 'Back to Shop',
-      addToCart: 'Add to Cart',
-      popularTag: 'Popular',
-      cardAction: 'Details & Pickup',
-    },
-    footer: {
-      nav: {
-        about: 'About Café Da Alma',
-        careers: 'Careers',
-        press: 'Press',
-        customerCare: 'Customer Care',
-        foodservice: 'Foodservice',
-      },
-      newsTitle: 'Get the freshest Café Da Alma news',
-      emailPlaceholder: 'Your email here',
-      subscribe: 'Subscribe',
-      terms: 'Terms & Conditions',
-      privacy: 'Privacy Policy',
-      transparency: 'Supply Chain Transparency',
-      copyright: '©2026 Café Da Alma, LLC. All Rights Reserved.',
-    },
-  },
-  pt: {
-    nav: {
-      menu: 'Cardapio',
-      shop: 'Loja',
-      locations: 'Locais',
-      contact: 'Contato',
-      order: 'Pedir Online',
-      toggleOpen: 'Abrir navegacao',
-      language: 'EN',
-    },
-    home: {
-      title: 'Bem-vindo ao Café Da Alma',
-      description: 'Cafe especial, doces artesanais e um ambiente acolhedor em um so lugar.',
-      cta: 'Ver Cardapio',
-      banner: 'Descubra onde os momentos desaceleram e as xicaras estao sempre quentes na Café Da Alma.',
-      featuredTitle: 'Itens em Destaque do Cardapio',
-      featuredItems: ['Erva Mate', 'Mogiana Latte', 'Pao de Queijo'],
-      exploreMenu: 'Explorar Cardapio',
-      stripTop: 'Alma brasileira, ritmo de vizinhanca.',
-      splitTitle: 'Do primeiro gole a ultima mordida, tudo e artesanal.',
-      splitBody: 'Cada bebida e preparada na hora e combinada com doces inspirados nas tradicoes dos cafes brasileiros.',
-      splitCta: 'Pedir Online',
-      highlightsTitle: 'Por que os clientes sempre voltam',
-      highlights: ['Cafe brasileiro de origem unica', 'Doces frescos preparados todos os dias', 'Retirada rapida e entrega local'],
-      stripBottom: 'Feito com carinho. Servido com intencao.',
-      socialHandle: '@cafedaalma',
-      socialTagline: 'Marque a gente no seu momento favorito na Café Da Alma.',
-    },
-    menu: {
-      title: 'Cardapio',
-      intro: 'Bebidas preparadas com cuidado e favoritos brasileiros servidos o dia todo.',
-      itemsLabel: 'itens',
-    },
-    locations: {
-      title: 'Locais',
-      mapLabel: 'mapa',
-    },
-    order: {
-      title: 'Peca Agora',
-      description: 'Peca seus favoritos em poucos minutos com retirada flexivel e entrega local.',
-      badge: 'Rapido, fresco e artesanal',
-      startOrder: 'Fazer Pedido',
-      browseMenu: 'Ver Cardapio Completo',
-      optionsTitle: 'Escolha como voce quer receber seu pedido',
-      options: [
-        {
-          title: 'Retirada',
-          detail: 'Pronto em 15-20 minutos',
-          note: 'Ideal para uma parada rapida de cafe e doces.',
+        contact: {
+            title: "Contact Us",
+            name: "First & Last Name",
+            namePlaceholder: "Jane Doe",
+            email: "Email",
+            emailPlaceholder: "jane@example.com",
+            message: "Message",
+            messagePlaceholder: "Tell us how we can help...",
+            helpText:
+                "Questions about catering, events, or custom orders? We usually reply within one business day.",
+            submit: "Submit",
         },
-        {
-          title: 'Entrega',
-          detail: 'Chega em cerca de 30-40 minutos',
-          note: 'Entrega local disponivel em bairros selecionados.',
+        shop: {
+            title: "Shop",
+            intro: "Browse signature drinks, pastries, merch, and packaged favorites from Café Da Alma.",
+            viewAll: "View all",
+            backToShop: "Back to Shop",
+            addToCart: "Add to Cart",
+            popularTag: "Popular",
+            cardAction: "Details & Pickup",
         },
-      ],
-      stepsTitle: 'Como funciona o pedido online',
-      steps: [
-        'Escolha suas bebidas, doces e combos.',
-        'Selecione retirada ou entrega e defina o horario.',
-        'Confirme o pedido e comecamos a preparar tudo na hora.',
-      ],
-      bundlesTitle: 'Combos mais pedidos',
-      bundles: [
-        {
-          name: 'Reset da Manha',
-          includes: 'Mogiana Latte + Pao de Queijo',
-          price: '$7.00',
+        footer: {
+            nav: {
+                about: "About Café Da Alma",
+                careers: "Careers",
+                press: "Press",
+                customerCare: "Customer Care",
+                foodservice: "Foodservice",
+            },
+            newsTitle: "Get the freshest Café Da Alma news",
+            emailPlaceholder: "Your email here",
+            subscribe: "Subscribe",
+            terms: "Terms & Conditions",
+            privacy: "Privacy Policy",
+            transparency: "Supply Chain Transparency",
+            copyright: "©2026 Café Da Alma, LLC. All Rights Reserved.",
         },
-        {
-          name: 'Pausa Doce da Tarde',
-          includes: 'Cha Misto + Brigadeiros (2)',
-          price: '$8.00',
+    },
+    pt: {
+        nav: {
+            menu: "Cardapio",
+            shop: "Loja",
+            locations: "Locais",
+            contact: "Contato",
+            order: "Pedir Online",
+            toggleOpen: "Abrir navegacao",
+            language: "EN",
         },
-        {
-          name: 'Combinacao Café Da Alma',
-          includes: 'Cold Brew Brasileiro + Pastel de Belem',
-          price: '$8.00',
+        home: {
+            title: "Bem-vindo ao Café Da Alma",
+            description:
+                "Cafe especial, doces artesanais e um ambiente acolhedor em um so lugar.",
+            cta: "Ver Cardapio",
+            banner: "Descubra onde os momentos desaceleram e as xicaras estao sempre quentes na Café Da Alma.",
+            featuredTitle: "Itens em Destaque do Cardapio",
+            featuredItems: ["Erva Mate", "Mogiana Latte", "Pao de Queijo"],
+            exploreMenu: "Explorar Cardapio",
+            stripTop: "Alma brasileira, ritmo de vizinhanca.",
+            splitTitle: "Do primeiro gole a ultima mordida, tudo e artesanal.",
+            splitBody:
+                "Cada bebida e preparada na hora e combinada com doces inspirados nas tradicoes dos cafes brasileiros.",
+            splitCta: "Pedir Online",
+            highlightsTitle: "Por que os clientes sempre voltam",
+            highlights: [
+                "Cafe brasileiro de origem unica",
+                "Doces frescos preparados todos os dias",
+                "Retirada rapida e entrega local",
+            ],
+            stripBottom: "Feito com carinho. Servido com intencao.",
+            socialHandle: "@cafedaalma",
+            socialTagline:
+                "Marque a gente no seu momento favorito na Café Da Alma.",
         },
-      ],
-      bundleAction: 'Adicionar Combo',
-      supportTitle: 'Precisa de um pedido maior?',
-      supportBody: 'Para pedidos em grupo, escritorio ou eventos, nossa equipe ajuda voce a organizar tudo com antecedencia.',
-      supportAction: 'Falar com a Equipe',
-      features: [
-        'Pedidos online com agendamento para retirada',
-        'Entrega local em 30 minutos',
-        'Pedidos personalizados de blends',
-      ],
+        menu: {
+            title: "Cardapio",
+            intro: "Bebidas preparadas com cuidado e favoritos brasileiros servidos o dia todo.",
+            itemsLabel: "itens",
+        },
+        locations: {
+            title: "Locais",
+            mapLabel: "mapa",
+            intro: "Nos encontre em Lynchburg, VA e São Paulo, Brasil — duas cidades, uma alma.",
+        },
+        order: {
+            title: "Peca Agora",
+            description:
+                "Peca seus favoritos em poucos minutos com retirada flexivel e entrega local.",
+            badge: "Rapido, fresco e artesanal",
+            startOrder: "Fazer Pedido",
+            browseMenu: "Ver Cardapio Completo",
+            optionsTitle: "Escolha como voce quer receber seu pedido",
+            options: [
+                {
+                    title: "Retirada",
+                    detail: "Pronto em 15-20 minutos",
+                    note: "Ideal para uma parada rapida de cafe e doces.",
+                },
+                {
+                    title: "Entrega",
+                    detail: "Chega em cerca de 30-40 minutos",
+                    note: "Entrega local disponivel em bairros selecionados.",
+                },
+            ],
+            stepsTitle: "Como funciona o pedido online",
+            steps: [
+                "Escolha suas bebidas, doces e combos.",
+                "Selecione retirada ou entrega e defina o horario.",
+                "Confirme o pedido e comecamos a preparar tudo na hora.",
+            ],
+            bundlesTitle: "Combos mais pedidos",
+            bundles: [
+                {
+                    name: "Reset da Manha",
+                    includes: "Mogiana Latte + Pao de Queijo",
+                    price: "$7.00",
+                },
+                {
+                    name: "Pausa Doce da Tarde",
+                    includes: "Cha Misto + Brigadeiros (2)",
+                    price: "$8.00",
+                },
+                {
+                    name: "Combinacao Café Da Alma",
+                    includes: "Cold Brew Brasileiro + Pastel de Belem",
+                    price: "$8.00",
+                },
+            ],
+            bundleAction: "Adicionar Combo",
+            supportTitle: "Precisa de um pedido maior?",
+            supportBody:
+                "Para pedidos em grupo, escritorio ou eventos, nossa equipe ajuda voce a organizar tudo com antecedencia.",
+            supportAction: "Falar com a Equipe",
+            features: [
+                "Pedidos online com agendamento para retirada",
+                "Entrega local em 30 minutos",
+                "Pedidos personalizados de blends",
+            ],
+        },
+        contact: {
+            title: "Contato",
+            name: "Nome e Sobrenome",
+            namePlaceholder: "Maria Silva",
+            email: "Email",
+            emailPlaceholder: "maria@exemplo.com",
+            message: "Mensagem",
+            messagePlaceholder: "Conte para a gente como podemos ajudar...",
+            helpText:
+                "Duvidas sobre catering, eventos ou pedidos personalizados? Normalmente respondemos em ate um dia util.",
+            submit: "Enviar",
+        },
+        shop: {
+            title: "Loja",
+            intro: "Explore bebidas exclusivas, doces, produtos da marca e embalados favoritos da Café Da Alma.",
+            viewAll: "Ver tudo",
+            backToShop: "Voltar para Loja",
+            addToCart: "Adicionar",
+            popularTag: "Popular",
+            cardAction: "Detalhes e Retirada",
+        },
+        footer: {
+            nav: {
+                about: "Sobre a Café Da Alma",
+                careers: "Carreiras",
+                press: "Imprensa",
+                customerCare: "Atendimento",
+                foodservice: "Foodservice",
+            },
+            newsTitle: "Receba as novidades da Café Da Alma",
+            emailPlaceholder: "Seu email aqui",
+            subscribe: "Inscrever",
+            terms: "Termos e Condicoes",
+            privacy: "Politica de Privacidade",
+            transparency: "Transparencia na Cadeia de Suprimentos",
+            copyright: "©2026 Café Da Alma, LLC. Todos os direitos reservados.",
+        },
     },
-    contact: {
-      title: 'Contato',
-      name: 'Nome e Sobrenome',
-      namePlaceholder: 'Maria Silva',
-      email: 'Email',
-      emailPlaceholder: 'maria@exemplo.com',
-      message: 'Mensagem',
-      messagePlaceholder: 'Conte para a gente como podemos ajudar...',
-      helpText: 'Duvidas sobre catering, eventos ou pedidos personalizados? Normalmente respondemos em ate um dia util.',
-      submit: 'Enviar',
-    },
-    shop: {
-      title: 'Loja',
-      intro: 'Explore bebidas exclusivas, doces, produtos da marca e embalados favoritos da Café Da Alma.',
-      viewAll: 'Ver tudo',
-      backToShop: 'Voltar para Loja',
-      addToCart: 'Adicionar',
-      popularTag: 'Popular',
-      cardAction: 'Detalhes e Retirada',
-    },
-    footer: {
-      nav: {
-        about: 'Sobre a Café Da Alma',
-        careers: 'Carreiras',
-        press: 'Imprensa',
-        customerCare: 'Atendimento',
-        foodservice: 'Foodservice',
-      },
-      newsTitle: 'Receba as novidades da Café Da Alma',
-      emailPlaceholder: 'Seu email aqui',
-      subscribe: 'Inscrever',
-      terms: 'Termos e Condicoes',
-      privacy: 'Politica de Privacidade',
-      transparency: 'Transparencia na Cadeia de Suprimentos',
-      copyright: '©2026 Café Da Alma, LLC. Todos os direitos reservados.',
-    },
-  },
 };
 
 const LanguageContext = createContext(null);
 
 export function LanguageProvider({ children }) {
-  const [locale, setLocale] = useState(() => localStorage.getItem('cafe-da-alma-locale') || 'en');
+    const [locale, setLocale] = useState(
+        () => localStorage.getItem("cafe-da-alma-locale") || "en",
+    );
 
-  useEffect(() => {
-    localStorage.setItem('cafe-da-alma-locale', locale);
-    document.documentElement.lang = locale === 'pt' ? 'pt-BR' : 'en';
-  }, [locale]);
+    useEffect(() => {
+        localStorage.setItem("cafe-da-alma-locale", locale);
+        document.documentElement.lang = locale === "pt" ? "pt-BR" : "en";
+    }, [locale]);
 
-  const value = useMemo(() => ({
-    locale,
-    setLocale,
-    toggleLanguage: () => setLocale(current => (current === 'en' ? 'pt' : 'en')),
-    t: translations[locale],
-  }), [locale]);
+    const value = useMemo(
+        () => ({
+            locale,
+            setLocale,
+            toggleLanguage: () =>
+                setLocale((current) => (current === "en" ? "pt" : "en")),
+            t: translations[locale],
+        }),
+        [locale],
+    );
 
-  return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;
+    return (
+        <LanguageContext.Provider value={value}>
+            {children}
+        </LanguageContext.Provider>
+    );
 }
 
 export function useLanguage() {
-  const context = useContext(LanguageContext);
+    const context = useContext(LanguageContext);
 
-  if (!context) {
-    throw new Error('useLanguage must be used within a LanguageProvider');
-  }
+    if (!context) {
+        throw new Error("useLanguage must be used within a LanguageProvider");
+    }
 
-  return context;
+    return context;
 }

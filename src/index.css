@@ -1607,7 +1607,17 @@ main p {
     font-size: 0.95rem;
 }
 .locations-page {
+    max-width: 100%;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
+    margin: 0;
+}
+.locations-cards-wrap {
     max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
 }
 .location-showcase {
     grid-template-columns: repeat(2, minmax(0, 1fr));
