@@ -44,7 +44,9 @@ export default function Navbar() {
     return (
         <header>
             {/* Announcement bar */}
-            <div className={`nav-announce${scrolled ? " nav-announce--hidden" : ""}`}>
+            <div
+                className={`nav-announce${scrolled ? " nav-announce--hidden" : ""}`}
+            >
                 <span>
                     Brazilian soul, neighborhood pace — now serving Lynchburg
                     &amp; São Paulo

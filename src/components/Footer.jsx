@@ -3,10 +3,7 @@ import { useLanguage } from '../context/LanguageContext';
 
 const footerNavLinks = [
   { key: 'about', to: '/#about' },
-  { key: 'careers', to: '/shop' },
-  { key: 'press', to: '/locations' },
-  { key: 'customerCare', to: '/contact' },
-  { key: 'foodservice', to: '/order' },
+  { key: 'contact', to: '/contact' },
 ];
 
 const socialLinks = [

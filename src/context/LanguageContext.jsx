@@ -163,10 +163,7 @@ const translations = {
         footer: {
             nav: {
                 about: "About Café Da Alma",
-                careers: "Careers",
-                press: "Press",
-                customerCare: "Customer Care",
-                foodservice: "Foodservice",
+                contact: "Contact",
             },
             newsTitle: "Get the freshest Café Da Alma news",
             emailPlaceholder: "Your email here",
@@ -340,10 +337,7 @@ const translations = {
         footer: {
             nav: {
                 about: "Sobre a Café Da Alma",
-                careers: "Carreiras",
-                press: "Imprensa",
-                customerCare: "Atendimento",
-                foodservice: "Foodservice",
+                contact: "Contato",
             },
             newsTitle: "Receba as novidades da Café Da Alma",
             emailPlaceholder: "Seu email aqui",
