@@ -917,7 +917,17 @@ main p {
 
 /* -- Menu -- */
 .menu-modern {
+    max-width: 100%;
+    padding: 0;
+    background: var(--bg);
+    box-shadow: none;
+    border-radius: 0;
+    margin: 0;
+}
+.menu-image-wrap {
     max-width: 1050px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 3rem;
 }
 .menu-image {
     display: block;

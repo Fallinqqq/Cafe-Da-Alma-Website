@@ -8,12 +8,18 @@ export default function Menu() {
 
   return (
     <main className="menu-modern">
-      <h1>{t.menu.title}</h1>
+      <div className="shop-hero">
+        <p className="shop-hero-eyebrow">Café Da Alma</p>
+        <h1>{t.menu.title}</h1>
+        <p className="shop-hero-sub">{t.menu.intro}</p>
+      </div>
+      <div className="menu-image-wrap">
       <img
         src={menuImage}
         alt={menuAlt}
         className="menu-image"
       />
+      </div>
     </main>
   );
 }
