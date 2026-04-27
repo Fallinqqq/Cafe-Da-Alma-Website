@@ -34,6 +34,28 @@ const translations = {
             stripBottom: "Made with warmth. Served with intention.",
             socialHandle: "@cafedaalma",
             socialTagline: "Tag us in your favorite Café Da Alma moment.",
+            eyebrow: "Café Da Alma Coffee & Tea Co.",
+            craftTitle: "Our Craft",
+            craftHeading: "Roasted with Purpose, Brewed with Care",
+            craftBody:
+                "Every bean traces back to the sun-soaked highlands of Brazil. We work with small-batch roasters who share our obsession with quality — from the farm to your cup.",
+            craftCta: "Order Now",
+            shopFeaturedLabel: "Shop by Featured",
+            shopNow: "Shop Now",
+            storyTitle: "Our Story",
+            storyHeading: "Where Brazilian Soul Meets Neighborhood Warmth",
+            storyBody1:
+                'Café Da Alma — meaning "Café of the Soul" — was born from a love of Brazilian coffee culture and the belief that a great cup of coffee should slow you down, not speed you up. We source bold Brazilian roasts, brew handcrafted teas, and bake fresh pastries every morning for our neighbors in Lynchburg, VA and São Paulo, Brazil.',
+            storyBody2:
+                "Every drink, every bite, every visit is made with intention. We are not just a cafe — we are a place where moments stretch a little longer and the cups are always warm.",
+            marqueeItems: [
+                "Brazilian Soul",
+                "Neighborhood Pace",
+                "Handcrafted Daily",
+                "Specialty Coffee & Tea",
+                "Fresh Pastries",
+                "Lynchburg & São Paulo",
+            ],
         },
         menu: {
             title: "Menu",
@@ -99,6 +121,14 @@ const translations = {
                 "Local delivery in 30 minutes",
                 "Custom blend requests",
             ],
+            cuisine: "Brazilian Coffee & Tea · Lynchburg, VA",
+            openNow: "Open Now",
+            address: "2307 Main St, Lynchburg VA",
+            hours: "Mon–Sat 7am–7pm",
+            cartTitle: "Your Order",
+            cartEmpty: "Add items from the menu to get started",
+            subtotal: "Subtotal",
+            placeOrder: "Place Order",
         },
         contact: {
             title: "Contact Us",
@@ -120,6 +150,15 @@ const translations = {
             addToCart: "Add to Cart",
             popularTag: "Popular",
             cardAction: "Details & Pickup",
+        },
+        services: {
+            title: "Our Services",
+            items: [
+                "Specialty coffee brewing",
+                "Pastry and dessert pairing",
+                "Private events and catering",
+                "Weekend live music and community events",
+            ],
         },
         footer: {
             nav: {
@@ -172,6 +211,28 @@ const translations = {
             socialHandle: "@cafedaalma",
             socialTagline:
                 "Marque a gente no seu momento favorito na Café Da Alma.",
+            eyebrow: "Café Da Alma Cafe & Cha",
+            craftTitle: "Nosso Artesanato",
+            craftHeading: "Torrado com Proposito, Preparado com Cuidado",
+            craftBody:
+                "Do Brasil direto ao seu copo — trabalhamos com torrefadores artesanais obcecados por qualidade.",
+            craftCta: "Pedir Agora",
+            shopFeaturedLabel: "Explorar Destaques",
+            shopNow: "Comprar",
+            storyTitle: "Nossa Historia",
+            storyHeading: "Alma Brasileira, Calor de Vizinhanca",
+            storyBody1:
+                "Nascemos do amor pelo cafe brasileiro e da crenca de que uma boa xicara deve te fazer desacelerar. Torras marcantes, chas artesanais e doces frescos — todo dia, em Lynchburg e Sao Paulo.",
+            storyBody2:
+                "Cada visita e feita com intencao. Somos o lugar onde os momentos duram mais e as xicaras estao sempre quentinhas.",
+            marqueeItems: [
+                "Alma Brasileira",
+                "Ritmo de Vizinhanca",
+                "Feito a Mao",
+                "Cafe & Cha Especial",
+                "Doces Frescos",
+                "Lynchburg & Sao Paulo",
+            ],
         },
         menu: {
             title: "Cardapio",
@@ -237,6 +298,14 @@ const translations = {
                 "Entrega local em 30 minutos",
                 "Pedidos personalizados de blends",
             ],
+            cuisine: "Cafe & Cha Brasileiro · Lynchburg, VA",
+            openNow: "Aberto Agora",
+            address: "2307 Main St, Lynchburg VA",
+            hours: "Seg–Sab 7h–19h",
+            cartTitle: "Seu Pedido",
+            cartEmpty: "Adicione itens do cardapio para comecar",
+            subtotal: "Subtotal",
+            placeOrder: "Fazer Pedido",
         },
         contact: {
             title: "Contato",
@@ -258,6 +327,15 @@ const translations = {
             addToCart: "Adicionar",
             popularTag: "Popular",
             cardAction: "Detalhes e Retirada",
+        },
+        services: {
+            title: "Nossos Servicos",
+            items: [
+                "Preparo de cafe especial",
+                "Combinacao de doces e sobremesas",
+                "Eventos privados e catering",
+                "Musica ao vivo e eventos comunitarios nos fins de semana",
+            ],
         },
         footer: {
             nav: {
