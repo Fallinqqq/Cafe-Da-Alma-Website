@@ -12,8 +12,15 @@ export default function Navbar() {
     const [open, setOpen] = useState(false);
     const [langOpen, setLangOpen] = useState(false);
     const [logoError, setLogoError] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
     const { locale, setLocale, t } = useLanguage();
     const langRef = useRef(null);
+
+    useEffect(() => {
+        const onScroll = () => setScrolled(window.scrollY > 40);
+        window.addEventListener("scroll", onScroll, { passive: true });
+        return () => window.removeEventListener("scroll", onScroll);
+    }, []);
 
     const close = () => setOpen(false);
 
@@ -37,7 +44,7 @@ export default function Navbar() {
     return (
         <header>
             {/* Announcement bar */}
-            <div className="nav-announce">
+            <div className={`nav-announce${scrolled ? " nav-announce--hidden" : ""}`}>
                 <span>
                     Brazilian soul, neighborhood pace — now serving Lynchburg
                     &amp; São Paulo
