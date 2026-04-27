@@ -8,9 +8,7 @@ export default function Locations() {
     return (
         <main className="locations-page">
             <div className="shop-hero">
-                <p className="shop-hero-eyebrow">Café Da Alma</p>
                 <h1>{t.locations.title}</h1>
-                <p className="shop-hero-sub">{t.locations.intro}</p>
             </div>
             <div className="locations-cards-wrap">
                 <div className="location-cards location-showcase">

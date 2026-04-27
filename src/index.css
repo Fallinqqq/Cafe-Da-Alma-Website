@@ -28,7 +28,7 @@ html {
 body {
     font-family: "mendl-sans", Arial, sans-serif;
     line-height: 1.7;
-    background: #fff;
+    background: #1a0e06;
     color: var(--text);
     overflow-x: clip;
 }
@@ -272,6 +272,15 @@ nav {
 }
 /* Responsive */
 @media (max-width: 860px) {
+    nav {
+        position: relative;
+    }
+    .logo {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
     .nav-group {
         display: none;
     }
@@ -357,7 +366,7 @@ main p {
 /* -- Home -- */
 .home-page {
     max-width: 100%;
-    padding: 0 0 4rem;
+    padding: 0;
     background: #fff;
     border-radius: 0;
     box-shadow: none;
@@ -472,7 +481,7 @@ main p {
 /* Marquee */
 .home-marquee {
     overflow: hidden;
-    background: #1a0e06;
+    background: #e56e26;
     color: #fbead0;
     padding: 0.7rem 0;
     white-space: nowrap;
@@ -764,7 +773,7 @@ main p {
     min-height: 560px;
 }
 .home-about-visual {
-    background: url("/about-us-home.png") center/cover no-repeat var(--bg);
+    background: url("/LOGOS-56.png") center/60% no-repeat var(--bg);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1043,7 +1052,7 @@ main p {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(20, 10, 4, 0.5);
+    background: rgba(20, 10, 4, 0.3);
 }
 .shop-hero-eyebrow,
 .shop-hero h1,
@@ -1566,6 +1575,15 @@ main p {
 }
 .ordering-item-img.pastries {
     background: linear-gradient(145deg, #5c3208 0%, #b06818 55%, #e5aa3f 100%);
+}
+.ordering-item-img-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+    z-index: 1;
 }
 
 .ordering-item-controls {
@@ -2547,6 +2565,9 @@ body.checkout-bg {
     .shop-hero,
     .cat-hero {
         padding: 3.5rem 1.25rem 3rem;
+    }
+    .shop-tabs-wrap {
+        display: none;
     }
     .shop-tabs {
         justify-content: flex-start;

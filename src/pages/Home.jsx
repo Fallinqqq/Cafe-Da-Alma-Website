@@ -106,6 +106,19 @@ export default function Home() {
                     <p>{t.home.storyBody2}</p>
                 </div>
             </section>
+
+            {/* ── Marquee ── */}
+            <div className="home-marquee" aria-hidden="true">
+                <div className="home-marquee-track">
+                    {[...t.home.marqueeItems, ...t.home.marqueeItems].map(
+                        (item, i) => (
+                            <span key={i}>
+                                {item} <span className="marquee-dot">·</span>
+                            </span>
+                        ),
+                    )}
+                </div>
+            </div>
         </main>
     );
 }

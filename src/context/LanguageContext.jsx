@@ -3,6 +3,7 @@ import { createContext, useContext, useEffect, useMemo, useState } from "react";
 const translations = {
     en: {
         nav: {
+            home: "Home",
             menu: "Menu",
             shop: "Shop",
             locations: "Locations",
@@ -49,7 +50,6 @@ const translations = {
             storyBody2:
                 "Every drink, every bite, every visit is made with intention. We are not just a cafe — we are a place where moments stretch a little longer and the cups are always warm.",
             marqueeItems: [
-                "Brazilian Soul",
                 "Neighborhood Pace",
                 "Handcrafted Daily",
                 "Specialty Coffee & Tea",
@@ -214,6 +214,7 @@ const translations = {
     },
     pt: {
         nav: {
+            home: "Inicio",
             menu: "Cardapio",
             shop: "Loja",
             locations: "Locais",
@@ -261,7 +262,6 @@ const translations = {
             storyBody2:
                 "Cada visita e feita com intencao. Somos o lugar onde os momentos duram mais e as xicaras estao sempre quentinhas.",
             marqueeItems: [
-                "Alma Brasileira",
                 "Ritmo de Vizinhanca",
                 "Feito a Mao",
                 "Cafe & Cha Especial",
@@ -335,7 +335,7 @@ const translations = {
             ],
             cuisine: "Cafe & Cha Brasileiro · Lynchburg, VA",
             openNow: "Aberto Agora",
-            address: "2307 Main St, Lynchburg VA",
+            address: "2307 Main ST, Lynchburg, VA 24503",
             hours: "Seg–Sab 7h–19h",
             cartTitle: "Seu Pedido",
             cartEmpty: "Adicione itens do cardapio para comecar",

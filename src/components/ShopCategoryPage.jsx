@@ -29,9 +29,7 @@ export default function ShopCategoryPage({ slug }) {
                 }}
             >
                 <div className="cat-hero-inner">
-                    <p className="shop-hero-eyebrow">Café Da Alma</p>
                     <h1>{category.title}</h1>
-                    <p className="shop-hero-sub">{category.description}</p>
                 </div>
             </div>
 

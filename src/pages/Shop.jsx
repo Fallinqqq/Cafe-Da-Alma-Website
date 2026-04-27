@@ -23,9 +23,7 @@ export default function Shop() {
         <main className="shop-page">
             {/* Page hero */}
             <div className="shop-hero">
-                <p className="shop-hero-eyebrow">Café Da Alma</p>
                 <h1>{t.shop.title}</h1>
-                <p className="shop-hero-sub">{t.shop.intro}</p>
             </div>
 
             {/* Sticky category tabs */}

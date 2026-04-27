@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
 
 const allLinks = [
+    { to: "/", key: "home", end: true },
     { to: "/menu", key: "menu" },
     { to: "/shop", key: "shop" },
     { to: "/locations", key: "locations" },
@@ -48,8 +49,7 @@ export default function Navbar() {
                 className={`nav-announce${scrolled ? " nav-announce--hidden" : ""}`}
             >
                 <span>
-                    Brazilian soul, neighborhood pace — now serving Lynchburg
-                    &amp; São Paulo
+                    Neighborhood pace — now serving Lynchburg &amp; São Paulo
                 </span>
             </div>
 
@@ -72,10 +72,11 @@ export default function Navbar() {
 
                 {/* All links + CTA - right */}
                 <ul className="nav-group nav-right">
-                    {allLinks.map(({ to, key }) => (
+                    {allLinks.map(({ to, key, end }) => (
                         <li key={to}>
                             <NavLink
                                 to={to}
+                                end={end}
                                 className={(p) => linkClass(p, to)}
                                 onClick={close}
                             >
@@ -163,10 +164,11 @@ export default function Navbar() {
             {/* Mobile drawer */}
             {open && (
                 <ul className="nav-mobile">
-                    {allLinks.map(({ to, key }) => (
+                    {allLinks.map(({ to, key, end }) => (
                         <li key={to}>
                             <NavLink
                                 to={to}
+                                end={end}
                                 className={(p) => linkClass(p, to)}
                                 onClick={close}
                             >

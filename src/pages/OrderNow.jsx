@@ -3,6 +3,20 @@ import { useNavigate } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
 import { getMenuSections } from "../data/siteContent";
 
+const SECTION_DEFAULT_IMAGES = {
+    coffees: '/coffee.jpg',
+    teas: '/tea.png',
+};
+
+const PASTRY_IMAGES = {
+    "Pao de Queijo": "/pao-de-queijo.jpg",
+    "Bolo de Fuba": "/bolo-de-fuba.jpg",
+    "Pastel de Belem": "/pastel-de-belem.jpg",
+    "Pudim Traditional (1)": "/pudim.jpg",
+    "Pudim Tradicional (1)": "/pudim.jpg",
+    "Brigadeiros (2)": "/briga.jpg",
+};
+
 const SECTION_THEME = {
     Coffees: "coffees",
     Cafes: "coffees",
@@ -123,7 +137,15 @@ export default function OrderNow() {
                                                 <div className="ordering-item-right">
                                                     <div
                                                         className={`ordering-item-img ${theme}`}
-                                                    />
+                                                    >
+                                                        {(PASTRY_IMAGES[item.name] || SECTION_DEFAULT_IMAGES[theme]) && (
+                                                            <img
+                                                                src={PASTRY_IMAGES[item.name] || SECTION_DEFAULT_IMAGES[theme]}
+                                                                alt={item.name}
+                                                                className="ordering-item-img-photo"
+                                                            />
+                                                        )}
+                                                    </div>
                                                     <div className="ordering-item-controls">
                                                         {q > 0 && (
                                                             <>
