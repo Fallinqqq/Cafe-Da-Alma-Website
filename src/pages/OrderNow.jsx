@@ -229,7 +229,11 @@ export default function OrderNow() {
 
                                 <button
                                     className="ordering-checkout-btn"
-                                    onClick={() => navigate("/checkout", { state: { cart } })}
+                                    onClick={() =>
+                                        navigate("/checkout", {
+                                            state: { cart },
+                                        })
+                                    }
                                 >
                                     {t.order.placeOrder} · $
                                     {subtotal.toFixed(2)}
