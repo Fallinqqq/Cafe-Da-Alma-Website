@@ -12,6 +12,7 @@ import Merchandise from './pages/Merchandise';
 import PackagedCoffeeTea from './pages/PackagedCoffeeTea';
 import Locations from './pages/Locations';
 import OrderNow from './pages/OrderNow';
+import Checkout from './pages/Checkout';
 import Contact from './pages/Contact';
 
 export default function App() {
@@ -30,6 +31,7 @@ export default function App() {
           <Route path="/shop/packaged-coffee-tea" element={<PackagedCoffeeTea />} />
           <Route path="/locations" element={<Locations />} />
           <Route path="/order" element={<OrderNow />} />
+          <Route path="/checkout" element={<Checkout />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
         <Footer />

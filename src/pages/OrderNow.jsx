@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
 import { getMenuSections } from "../data/siteContent";
 
@@ -13,6 +14,7 @@ const SECTION_THEME = {
 
 export default function OrderNow() {
     const { locale, t } = useLanguage();
+    const navigate = useNavigate();
     const sections = getMenuSections(locale).filter(
         (s) => !["Sizes", "Tamanhos"].includes(s.title),
     );
@@ -225,7 +227,10 @@ export default function OrderNow() {
                                     <span>${subtotal.toFixed(2)}</span>
                                 </div>
 
-                                <button className="ordering-checkout-btn">
+                                <button
+                                    className="ordering-checkout-btn"
+                                    onClick={() => navigate("/checkout", { state: { cart } })}
+                                >
                                     {t.order.placeOrder} · $
                                     {subtotal.toFixed(2)}
                                 </button>
