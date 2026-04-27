@@ -6,7 +6,6 @@
     margin: 0;
     padding: 0;
 }
-
 /* -- Tokens -- */
 :root {
     --nav-bg: #1e110a;
@@ -28,6 +27,7 @@ body {
     line-height: 1.7;
     background: var(--bg);
     color: var(--text);
+    overflow-x: clip;
 }
 h1,
 h2,
@@ -55,6 +55,8 @@ header {
     top: 0;
     z-index: 100;
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
 }
 nav {
     max-width: 1200px;
@@ -1788,6 +1790,8 @@ main p {
     margin-top: 2rem;
     background: #1a0e06;
     color: #f5f0e8;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
 }
 .footer-inner {
     max-width: 1120px;
